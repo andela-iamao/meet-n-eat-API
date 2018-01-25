@@ -36,7 +36,6 @@ class UserTest(unittest.TestCase):
         )
         user.save()
 
-
     """
         @TEST
        /api/v1/user/signup

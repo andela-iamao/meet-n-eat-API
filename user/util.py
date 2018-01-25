@@ -27,6 +27,14 @@ class Validator:
             raise Exception("email is not valid", 422)
         return True
 
+    @staticmethod
+    def user_exists(uid):
+        user = User.objects.filter(id=uid).first()
+        print 'user', user.serialize
+        if not user:
+            raise Exception("user does not exist", 404)
+        return user
+
     def is_all_valid(self):
         self.data["email"] and self.is_email()
         self.is_valid_password()
